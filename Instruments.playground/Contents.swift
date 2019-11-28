@@ -107,6 +107,45 @@ let acousticGuitar = AcousticGuitar(brand: "Roland", stringGauge: "light")
 acousticGuitar.tune()
 acousticGuitar.play(music)
 
+// 1. Define the Amplifier class
+class Amplifier {
+    
+    private var _volume: Int
+    /*  Only can be accessed inside of the Amplifier class.
+     Is hidden from outside users
+     the unserscore at the beginning of the name emphasizes that it is a private implementation . (only convention)
+     */
+    
+    private(set) var isOn: Bool
+    /*  Canbe read by outside users but no written to private(set)
+     */
+    
+    init() {
+        isOn = false
+        _volume = 0
+    }
+    
+    // 4
+    func plugIn() {
+        isOn = true
+    }
+    
+    func unplug() {
+        isOn = false
+    }
+    
+    // computing property volume wraps the private stored property _volume
+    var volume: Int {
+        // Getter drops the volume to 0 if it's not plugged in
+        get {
+            return isOn ? _volume : 0
+        }
+        // The volume will always be clamped to a certain value between 0 and 10 inside the setter. No setting the amp to 11
+        set {
+            _volume = min(max(newValue, 0), 10)
+        }
+    }
+}
 
 
 
