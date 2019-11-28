@@ -212,3 +212,20 @@ electricGuitar.amplifier.volume
 bassGuitar.amplifier.plugIn()
 bassGuitar.amplifier.volume
 electricGuitar.amplifier.volume
+
+class Band {
+    let instruments: [Instrument]
+    
+    init(instruments: [Instrument]) {
+        self.instruments = instruments
+    }
+    
+    func perform(_ music: Music) {
+        for instrument in instruments {
+            instrument.perform(music)
+        }
+    }
+}
+let instruments = [piano, acousticGuitar, electricGuitar, bassGuitar]
+let band = Band(instruments: instruments)
+band.perform(music)
