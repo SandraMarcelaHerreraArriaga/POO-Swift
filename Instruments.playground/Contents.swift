@@ -191,3 +191,24 @@ class BassGuitar: Guitar {
         return "Play bass line \(preparedNotes) at volume \(amplifier.volume)."
     }
 }
+
+let amplifier = Amplifier()
+let electricGuitar = ElectricGuitar(brand: "Gibson", stringGauge: "medium", amplifier: amplifier)
+electricGuitar.tune()
+
+let bassGuitar = BassGuitar(brand: "Fender", stringGauge: "heavy", amplifier: amplifier)
+bassGuitar.tune()
+
+// Notice that because of class reference semantics, the amplifier is a shared
+// resource between these two guitars.
+
+bassGuitar.amplifier.volume
+electricGuitar.amplifier.volume
+
+bassGuitar.amplifier.unplug()
+bassGuitar.amplifier.volume
+electricGuitar.amplifier.volume
+
+bassGuitar.amplifier.plugIn()
+bassGuitar.amplifier.volume
+electricGuitar.amplifier.volume
