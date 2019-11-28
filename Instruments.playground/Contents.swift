@@ -77,6 +77,17 @@ piano.play(music)
 Piano.whiteKeys
 Piano.blackKeys
 
+class Guitar: Instrument{
+    let stringGauge: String
+    init(brand: String, stringGauge: String = "medium") {
+        self.stringGauge = stringGauge
+        super.init(brand: brand)
+    }
+}
+/*
+ This creates a new class guitar tha adds the idea of string gauge as a text string to the instrument base class. like instrument, guitar is considered a abstract type whose tune() and play(_:) methods need to be overriden in a subclasss. This is why it is someimes called a intermediate abstract base class.
+ */
+
 
 
 
