@@ -48,6 +48,11 @@ class Piano : Instrument{
     override func tune() -> String {
         return "Piano standar tuning for \(brand). "
     }
+    override func play(_ music: Music) -> String {
+        // 6
+        let preparedNotes = super.play(music)
+        return "Piano playing \(preparedNotes)"
+    }
     
     func play(_ music: Music, usingPedals: Bool) -> String {
         let preparedNotes = super.play(music)
