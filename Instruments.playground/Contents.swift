@@ -64,3 +64,20 @@ class Piano : Instrument{
         }
     }
 }
+//Create piano as an instance of the Piano class
+let piano = Piano(brand: "Yamaha", hasPedals: true)
+piano.tune()
+
+//music instance of the Music class
+let music = Music(notes: ["C","G","F"])
+piano.play(music, usingPedals: false)
+
+piano.play(music)
+
+Piano.whiteKeys
+Piano.blackKeys
+
+
+
+
+
